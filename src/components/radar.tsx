@@ -75,7 +75,7 @@ export function RadarComponent() {
       triggerLoading();
       const base64String = reader.result;
       // Dapatkan nilai acak dari gambar
-      const values = getRandomValuesFromImage(base64String, 10);
+      const values = getRandomValuesFromImage(base64String, 9);
 
       // Format data untuk chart
       const newChartData = [
@@ -126,7 +126,7 @@ export function RadarComponent() {
               img: "./meme/mok.jpeg",
               text: "jomok banget suka kirim stiker orang hitam semoga cepet sadar",
             },
-            { img: "./meme/mok2.jpeg", text: "asdf asd" },
+            { img: "./meme/mok2.jpeg", text: "mau femboy yuri orang hitam sama aja jomok is jomok" },
           ],
         },
         {
@@ -145,7 +145,7 @@ export function RadarComponent() {
           value: values[5],
           text: [
             { img: "./meme/rasis.jpeg", text: "saiba momoi" },
-            { img: "./meme/rasis2.jpeg", text: "n-" },
+            { img: "./meme/rasis2.jpeg", text: "orang yang suka ngomong n-word" },
           ],
         },
         {
@@ -187,14 +187,14 @@ export function RadarComponent() {
             },
           ],
         },
-        {
-          category: "karbit",
-          value: values[9],
-          text: [
-            { img: "./meme/bit.jpeg", text: "asdasd" },
-            { img: "./meme/bit2.jpeg", text: "asdf asd" },
-          ],
-        },
+        // {
+        //   category: "karbit",
+        //   value: values[9],
+        //   text: [
+        //     { img: "./meme/bit.jpeg", text: "asdasd" },
+        //     { img: "./meme/bit2.jpeg", text: "asdf asd" },
+        //   ],
+        // },
       ];
 
       setChartData(newChartData);
@@ -268,7 +268,7 @@ export function RadarComponent() {
             ) : (
               <div className="grid justify-center w-full border-t-2 sm:border-t-0 sm:border-s-2">
                 <ChartContainer config={chartConfig} className=" aspect-square">
-                  <RadarChart data={chartData.slice(0, 9)} startAngle={45}>
+                  <RadarChart data={chartData} startAngle={45}>
                     <ChartTooltip
                       cursor={false}
                       content={<ChartTooltipContent />}
@@ -285,8 +285,8 @@ export function RadarComponent() {
                   </RadarChart>
                 </ChartContainer>
                 <div className="grid place-content-center text-center space-y-4 py-4 border-t-2">
-                  <p>{name}</p>
-                  <p className="font-bold text-lg">{resultData.category}</p>
+                  <p>{name}, kamu adalah : </p>
+                  <p className="font-bold text-xl">{resultData.category}</p>
                   <div
                     style={{ backgroundImage: `url("${resultData.image}")` }}
                     className="min-w-60 rounded-md bg-center bg-contain bg-no-repeat aspect-square"
