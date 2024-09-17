@@ -1,5 +1,5 @@
 import '../globals.css'
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { PolarAngleAxis, PolarGrid, Radar, RadarChart } from "recharts";
 import {
   ChartContainer,
@@ -7,9 +7,8 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart";
 import { Input } from "./ui/input";
-import { Card, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
-import { Info, Loader, LoaderCircle, Upload } from "lucide-react";
+import { Info, LoaderCircle, Upload } from "lucide-react";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 
 // Fungsi untuk menghasilkan nilai acak berbasis Base64
@@ -246,7 +245,7 @@ export function RadarComponent() {
   }
   return (
     <div className="pt-4">
-      <CardContent
+      <div
         className={`space-y-8 ${
           chartData.length > 0 && "grid sm:grid-cols-2 place-content-center"
         }`}
@@ -290,7 +289,7 @@ export function RadarComponent() {
                   <p className="font-bold text-lg">{resultData.category}</p>
                   <div
                     style={{ backgroundImage: `url("${resultData.image}")` }}
-                    className="bg-cover min-w-60 rounded-md bg-center bg-no-repeat aspect-square"
+                    className="min-w-60 rounded-md bg-center bg-contain bg-no-repeat aspect-square"
                   />
                   <p>{resultData.text}</p>
                 </div>
@@ -352,7 +351,7 @@ export function RadarComponent() {
             </div>
           </div>
         )}
-      </CardContent>
+      </div>
     </div>
   );
 }
